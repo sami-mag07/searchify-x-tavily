@@ -162,6 +162,6 @@ EXTRACT_WORKERS=2 .venv/bin/python -m pytest -q tests     # no network, no model
 
 ## License
 
-Code: no license file yet, all rights reserved by the authors until one is added.
+Code: MIT, see [LICENSE](LICENSE). Model weights keep their own licenses:
 Llama-Nemotron-Rerank is released under OpenMDW-1.1 plus the Llama 3.2 Community License.
 Built with Llama.
