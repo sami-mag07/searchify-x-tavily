@@ -65,7 +65,7 @@ flowchart LR
 ## Setup
 
 ```
-python3 -m venv .venv
+python3.12 -m venv .venv      # Python 3.11 or newer (macOS ships 3.9, too old for torch)
 .venv/bin/python -m pip install -r requirements.txt
 cp .env.example .env          # add TAVILY_API_KEY and NEBIUS_API_KEY
 .venv/bin/python -m app.demo --privat-tavily --frage 1
@@ -144,6 +144,7 @@ Plain stdio JSON-RPC (protocol 2024-11-05), run from the repo root. Tools:
 ## Tests
 
 ```
+.venv/bin/python -m pip install pytest
 EXTRACT_WORKERS=2 .venv/bin/python -m pytest -q tests     # no network, no model downloads
 ```
 
