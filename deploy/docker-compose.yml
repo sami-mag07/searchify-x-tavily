@@ -1,19 +1,18 @@
-# Docker-Compose fuer das Such-Backend (SearXNG) und optional den Dienst.
+# Docker-Compose fuer das optionale Such-Backend SearXNG (nur fuer quellen=["web"]).
 #
 # Secrets kommen aus einer .env-Datei im Repo-Root (NICHT eingecheckt).
-# Start nur SearXNG:         docker compose -f deploy/docker-compose.yml up -d searxng
-# Start inkl. Dienst+Caddy:  docker compose -f deploy/docker-compose.yml --profile full up -d
+# Start: docker compose -f deploy/docker-compose.yml up -d searxng
+# Erwartete Variable (siehe .env.example): SEARXNG_SECRET
 #
-# Erwartete Variablen (siehe .env.example):
-#   SEARXNG_SECRET, OPENAI_BASE_URL, OPENAI_API_KEY, OPENAI_MODEL,
-#   RERANKER_MODEL, SERVICE_API_KEY
+# Der Port ist nur auf localhost gebunden: settings.yml schaltet den Limiter ab, offen
+# erreichbar waere die Instanz ein Proxy fuer beliebige Dritte.
 
 services:
   searxng:
     image: searxng/searxng:2025.1.1-8a5d2f1
     container_name: rag-searxng
     ports:
-      - "8888:8080"
+      - "127.0.0.1:8888:8080"
     volumes:
       - ./searxng:/etc/searxng:rw
     environment:
@@ -27,40 +26,3 @@ services:
       - CHOWN
       - SETGID
       - SETUID
-
-  # Optionaler eigener Dienst. Nur mit Profil "full".
-  service:
-    profiles: ["full"]
-    build:
-      context: ..
-      dockerfile: deploy/Dockerfile
-    container_name: rag-service
-    env_file:
-      - ../.env
-    environment:
-      # Im Compose-Netz wird SearXNG ueber den Servicenamen erreicht.
-      - SEARXNG_URL=http://searxng:8080
-    ports:
-      - "8000:8000"
-    depends_on:
-      - searxng
-    restart: unless-stopped
-
-  caddy:
-    profiles: ["full"]
-    image: caddy:2.8-alpine
-    container_name: rag-caddy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - service
-    restart: unless-stopped
-
-volumes:
-  caddy_data:
-  caddy_config:
