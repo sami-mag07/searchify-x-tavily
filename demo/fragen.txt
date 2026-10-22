@@ -1,0 +1,2 @@
+Erfüllt unsere interne KI-Richtlinie die aktuellen Pflichten aus dem EU AI Act?
+Entspricht unsere Passwortrichtlinie den aktuellen NIST-Empfehlungen zu Passwortlänge und regelmäßigem Passwortwechsel?

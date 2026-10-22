@@ -1,0 +1,39 @@
+{
+ "modell": "qwen3-4b",
+ "erstellt": "2026-10-18 16:55",
+ "dauer_s": 22.2,
+ "dokumente": {
+  "datenschutz-leitfaden.html": {
+   "regal": "Datenschutz",
+   "zusammenfassung": "Leitfaden für die Verarbeitung von personenbezogenen Daten in Projekten."
+  },
+  "it-schulungsplan.txt": {
+   "regal": "IT-Sicherheit",
+   "zusammenfassung": "Schulungsplan für IT-Beschäftigte im Jahr 2026."
+  },
+  "ki-richtlinie.md": {
+   "regal": "KI",
+   "zusammenfassung": "Interne Richtlinie zur Nutzung generativer KI-Werkzeuge in der Nordlicht Analytics GmbH."
+  },
+  "lieferanten-checkliste.md": {
+   "regal": "IT-Sicherheit",
+   "zusammenfassung": "Checkliste für die Prüfung von neuen Software-Lieferanten."
+  },
+  "passwort-und-zugang.md": {
+   "regal": "IT-Sicherheit",
+   "zusammenfassung": "Sicherheitsrichtlinie für Passwörter und Zugänge in der Nordlicht Analytics GmbH."
+  },
+  "projektnotiz-kundenchatbot.md": {
+   "regal": "KI",
+   "zusammenfassung": "Notizen zu einem Kundenchatbot, der KI-Technologie nutzt."
+  },
+  "protokoll-geschaeftsfuehrung.md": {
+   "regal": "Geschäftsführung",
+   "zusammenfassung": "Protokoll einer Geschäftsführungsrunde zum Thema KI-Richtlinie und Kundenchatbot."
+  },
+  "reiserichtlinie.md": {
+   "regal": "Reise",
+   "zusammenfassung": "Interne Reiserichtlinie für Dienstreisen in der Nordlicht Analytics GmbH."
+  }
+ }
+}
